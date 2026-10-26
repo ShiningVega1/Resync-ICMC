@@ -1,12 +1,8 @@
 name: Capture ICMC public website
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - scripts/mirror.py
-      - .github/workflows/mirror.yml
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: icmc-public-mirror
   cancel-in-progress: false
@@ -28,12 +24,12 @@ jobs:
           path: |
             mirror.log
             mirror-report.json
-      - name: Commit captured site
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs index.html mirror-report.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Capture ICMC public pages and assets for redesign'
-            git push
-          fi
+      - name: Upload captured snapshot
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captured-site
+          path: |
+            docs
+            index.html
+            mirror-report.json
