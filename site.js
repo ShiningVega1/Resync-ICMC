@@ -1,6 +1,61 @@
-const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
-menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
-nav.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');nav.classList.remove('open')}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.focus()}});
-const path=location.pathname.split('/').pop()||'index.html';nav.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')===path)a.setAttribute('aria-current','page')});
-document.querySelectorAll('form.demo-form').forEach(form=>{form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const fields=[...form.querySelectorAll('[required]')];const empty=fields.find(f=>!f.value.trim());if(empty){empty.setCustomValidity('Please complete this field.');empty.reportValidity();return;}const status=form.querySelector('[role=status]');status.textContent='Validation passed. This is a prototype: your message has not been sent or stored. Please use the email or phone number shown to contact ICMC.';status.focus();});form.querySelectorAll('input,textarea').forEach(f=>f.addEventListener('input',()=>f.setCustomValidity('')))});
+const menu = document.querySelector('.menu');
+const nav = document.querySelector('nav');
+
+if (menu && nav) {
+  menu.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    menu.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('open', open);
+  });
+
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      menu.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('open');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+      menu.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) {
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  const path = location.pathname.split('/').pop() || 'index.html';
+  nav.querySelectorAll('a').forEach((a) => {
+    const href = (a.getAttribute('href') || '').split('#')[0];
+    if (href === path) a.setAttribute('aria-current', 'page');
+  });
+}
+
+document.querySelectorAll('form.demo-form').forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const fields = [...form.querySelectorAll('[required]')];
+    const empty = fields.find((f) => !f.value.trim());
+    if (empty) {
+      empty.setCustomValidity('Please complete this field.');
+      empty.reportValidity();
+      return;
+    }
+
+    const status = form.querySelector('[role=status]');
+    if (status) {
+      status.textContent = 'Validation passed. This is a prototype: your message has not been sent or stored. Please use the email or phone number shown to contact ICMC.';
+      status.focus();
+    }
+  });
+
+  form.querySelectorAll('input,textarea').forEach((f) => f.addEventListener('input', () => f.setCustomValidity('')));
+});

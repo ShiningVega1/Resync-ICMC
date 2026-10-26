@@ -35,3 +35,18 @@ body{font-size:16px;line-height:1.7}header{position:relative;border-top:4px soli
 .page-hero h1{font-size:34px}.page-hero .lead{font-size:16px}.reading h2{font-size:26px}.photo{max-width:360px;max-height:210px;object-fit:contain;display:block}
 footer{padding:24px 0;font-size:12px;border-top-width:2px}.review-label{width:100%;font-size:10px;opacity:.8}
 @media(max-width:760px){.brand strong{font-size:18px}.logo-placeholder{width:50px;height:48px}.header{padding-top:12px}.compact-home .welcome-layout{grid-template-columns:1fr 110px;gap:15px;padding-top:22px;padding-bottom:22px}.compact-home .welcome img{width:110px;height:85px}.compact-home .welcome h1{font-size:26px}.compact-home .welcome p{font-size:13px}.compact-home .daily-layout{grid-template-columns:1fr;gap:28px}.compact-home .daily{padding-top:24px}.compact-home h2{font-size:22px}.page-hero h1{font-size:30px}}
+
+/* Final redesign refinements: institutional compact rhythm, shared cards, and real logo asset. */
+.brand-logo{width:58px;height:58px;object-fit:contain;flex-shrink:0}
+.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.service-box{border:1px solid var(--line);padding:20px;background:#fff}
+.service-box h2{font-size:25px;margin-bottom:10px}
+.service-box p{font-size:15px;color:var(--muted);margin-bottom:10px}
+.institutional-home .welcome h1{font-size:clamp(29px,3vw,38px)}
+.institutional-home .welcome .actions{margin-top:16px}
+.institutional-home .daily{padding-top:26px}
+.institutional-home .prayer h2{font-size:24px}
+.institutional-home .compact-information section{padding-bottom:20px;margin-bottom:20px}
+.institutional-home .service-links li{white-space:nowrap}
+@media(min-width:761px){.header{flex-wrap:nowrap}.header nav{width:auto;border-top:0;margin-left:auto}}
+@media(max-width:760px){.brand-logo{width:50px;height:50px}.service-grid{grid-template-columns:1fr}.service-box{padding:16px}.institutional-home .welcome .actions .button{padding:10px 15px;font-size:14px}}

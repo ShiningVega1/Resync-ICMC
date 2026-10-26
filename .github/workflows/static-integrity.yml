@@ -1,0 +1,16 @@
+name: Static site integrity
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'copilot/**'
+permissions:
+  contents: read
+jobs:
+  check-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check internal links and required assets
+        run: python scripts/check_static.py
