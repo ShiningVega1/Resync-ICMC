@@ -3,11 +3,11 @@
 ****************************/
 @font-face {
  font-family: 'eg-font';
-  src: url('../fonts/egfont.eot%3F85610117');
-  src: url('../fonts/egfont.eot%3F85610117') format('embedded-opentype'),
-       url('../fonts/egfont.woff%3F85610117') format('woff'),
-       url('../fonts/egfont.ttf%3F85610117') format('truetype'),
-       url('../fonts/egfont.svg%3F85610117') format('svg');
+  src: url('../fonts/egfont-fcb7a80b37.eot');
+  src: url('../fonts/egfont-fcb7a80b37.eot') format('embedded-opentype'),
+       url('../fonts/egfont-6e940a51b3.woff') format('woff'),
+       url('../fonts/egfont-65168c47c1.ttf') format('truetype'),
+       url('../fonts/egfont-9fd4b4bc0a.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 
