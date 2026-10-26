@@ -1,0 +1,24 @@
+name: Normalize mirror filenames
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/normalize.py
+      - .github/workflows/normalize.yml
+permissions:
+  contents: write
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/normalize.py
+      - name: Commit normalized mirror
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs filename-fixes.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Normalize mirrored filenames for static hosting'
+            git push
+          fi
