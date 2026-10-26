@@ -1,15 +1,36 @@
 # Swipeleft-ICMC
 
-ICMC redesign sandbox for swipeleft.org.
+Static redesign prototype for the Islamic Center of McLean County (Masjid Ibrahim), intended for review before any live domain cutover.
 
-## Current state
-Initial rendered homepage snapshot from https://icmclean.org/ with 12 locally saved stylesheets. This is an incomplete baseline, not a complete standalone mirror. Additional CSS, scripts, images, fonts, embeds, and links still use upstream URLs. Forms are disabled to prevent test submissions to the live site.
+## Repository structure
+- Root HTML pages (`index.html`, `about.html`, `education.html`, etc.) are the redesigned prototype.
+- `site.css` and `site.js` provide shared layout, navigation, and lightweight form-validation behavior.
+- `docs/` contains captured public source content and assets referenced by some service links.
+- `scripts/mirror.py` and `scripts/normalize.py` are maintenance scripts for refreshing mirrored source content.
 
-## Remaining work
-- Capture and localize remaining public pages and assets.
-- Validate responsive appearance and navigation.
-- Enable GitHub Pages from main/root.
-- Inspect Cloudflare routing before moving swipeleft.org DNS/domain bindings.
-- Preserve the original swipeleft repository.
+## Deployment
 
-No WordPress database, administrative content, or backend is included. robots.txt and metadata request no indexing; they do not restrict access.
+### GitHub Pages
+1. In repository settings, enable **Pages**.
+2. Set source to **Deploy from a branch**.
+3. Select branch **main** and folder **/(root)**.
+4. Keep `.nojekyll` in place so files with underscore-prefixed paths remain accessible.
+
+### Cloudflare Pages
+This repository includes `wrangler.toml` with:
+- `pages_build_output_dir = "."`
+
+Use these settings in Cloudflare Pages:
+- Framework preset: **None**
+- Build command: *(leave empty)*
+- Build output directory: `.` (repository root)
+
+## Mirror workflow safety
+- `.github/workflows/mirror.yml` and `.github/workflows/normalize.yml` are now **manual-only** (`workflow_dispatch`).
+- They upload artifacts for review instead of auto-committing to the repository.
+- This prevents automated mirror refreshes from overwriting redesign work on active branches.
+
+## Maintenance notes
+- Keep all prototype forms non-sending; do not route submissions to live institutional inboxes from this sandbox.
+- Preserve verified contact/donation/program information from `https://icmclean.org/`; do not publish unverified claims.
+- Do not modify the separate `ShiningVega1/swipeleft` repository from this project.
