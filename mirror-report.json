@@ -1,0 +1,37 @@
+{
+  "wget_exit_code": 8,
+  "pages": [
+    "index.html?page_id=37.html",
+    "index.html?p=930.html",
+    "index.html?page_id=891.html",
+    "index.html?p=2815.html",
+    "index.html?p=1857.html",
+    "index.html?p=2216.html",
+    "index.html?p=891.html",
+    "index.html",
+    "index.html?p=1979.html",
+    "index.html?p=2264.html",
+    "announcements.html",
+    "index.html?p=2372.html",
+    "index.html?p=230.html",
+    "index.html?p=37.html",
+    "donations/index.html",
+    "childrens-program/index.html",
+    "about-us/index.html",
+    "imam-corner/index.html",
+    "sadaqa-zakat-form/index.html",
+    "maktab/index.html",
+    "services/funeral/index.html",
+    "services/divorce/index.html",
+    "services/shahada/index.html",
+    "services/marriage/index.html",
+    "services_group/religious-services/index.html"
+  ],
+  "files": 589,
+  "limitations": [
+    "WordPress backend is not included.",
+    "Forms are disabled.",
+    "External embeds and services remain external.",
+    "Browser visual QA and custom-domain setup remain pending."
+  ]
+}
