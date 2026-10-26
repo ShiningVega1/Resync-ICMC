@@ -5,8 +5,9 @@ root=Path('docs')
 mapping={}
 for p in list(root.rglob('*')):
     if p.is_file() and '?' in p.name:
-        suffix=p.suffix if p.suffix in ('.html','.css','.js','.png','.jpg','.woff','.woff2') else ''
         stem=p.name.split('?')[0]
+        suffix=Path(stem).suffix
+        if p.name.endswith('.html'): suffix='.html'
         if suffix and stem.endswith(suffix): stem=stem[:-len(suffix)]
         new=stem+'-'+hashlib.sha256(p.name.encode()).hexdigest()[:10]+suffix
         mapping[p.name]=new
