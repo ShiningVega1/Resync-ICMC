@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 capture = Path('capture')
 result = subprocess.run([
-    'wget', '--recursive', '--level=3', '--page-requisites',
+    'wget', '-e', 'robots=off', '--recursive', '--level=3', '--page-requisites',
     '--convert-links', '--adjust-extension', '--no-parent',
     '--domains=icmclean.org', '--timeout=20', '--tries=2',
     '--wait=0.2', '--quota=200m', '--max-redirect=5',
