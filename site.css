@@ -63,7 +63,7 @@ footer{padding:24px 0;font-size:12px;border-top-width:2px}.review-label{width:10
 
 /* Homepage hero image treatment: large exterior photo and faded full-width backdrop. */
 .institutional-home .photo-hero{position:relative;isolation:isolate;overflow:hidden;background:#f8f6f3}
-.institutional-home .photo-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.88)),url("media/masjid-background.jpg");background-position:center;background-size:cover;opacity:1;z-index:-1}
+.institutional-home .photo-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.88)),url("media/beautiful_masjid1.JPG");background-position:center;background-size:cover;opacity:1;z-index:-1}
 .institutional-home .photo-hero .welcome-layout{width:min(1680px,calc(100% - 90px));grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;min-height:535px;padding-top:55px;padding-bottom:55px}
 .institutional-home .photo-hero .welcome-layout>div{position:relative;z-index:1}
 .institutional-home .photo-hero .hero-photo{width:100%;height:475px;object-fit:cover;object-position:center;background:#e7e8e3}
