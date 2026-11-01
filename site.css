@@ -50,3 +50,13 @@ footer{padding:24px 0;font-size:12px;border-top-width:2px}.review-label{width:10
 .institutional-home .service-links li{white-space:nowrap}
 @media(min-width:761px){.header{flex-wrap:nowrap}.header nav{width:auto;border-top:0;margin-left:auto}}
 @media(max-width:760px){.brand-logo{width:50px;height:50px}.service-grid{grid-template-columns:1fr}.service-box{padding:16px}.institutional-home .welcome .actions .button{padding:10px 15px;font-size:14px}}
+
+/* Editable community content: typography inherits the existing institutional design. */
+.cms-carousel{border-left:3px solid var(--gold);padding:10px 19px 12px;background:var(--cream);margin-bottom:12px;min-height:170px}
+.cms-carousel h3{font-size:22px;margin:5px 0 7px}.cms-carousel p{font-size:14px;margin:0 0 10px}
+.cms-date{font-size:11px!important;color:var(--muted);letter-spacing:.035em}
+.cms-controls{display:flex;align-items:center;gap:13px;margin-top:14px}
+.cms-controls button{background:white;border:1px solid var(--line);color:var(--green);cursor:pointer;min-width:36px;min-height:34px}
+.cms-count{font-size:12px;color:var(--muted)}
+.cms-entry{border-bottom:1px solid var(--line);padding:18px 0}
+.cms-entry h3{font-size:23px;margin-bottom:8px}.cms-entry p{font-size:15px;white-space:pre-wrap;margin-bottom:12px}
