@@ -51,3 +51,9 @@ The build emits a self-contained `_site/` folder. Any static host able to publis
 
 ## Existing site limitations
 Archived `docs/` content comes from a prior website capture, some links still lead to that archive, and contact forms are demonstration-only. Prayer times rely on an existing third-party embed. Maintain existing source attribution and rights before production.
+
+## Ordering homepage announcements
+In Pages CMS → **Announcements / Slides**, set **Slideshow order (lower first)** to `1` for the first slide, `2` for the second, etc. Save each announcement. Published, featured announcements are shown in ascending order; items without an order come last, newest first. The ordinary announcements listing continues to use newest-first order.
+
+## Homepage photo
+The hero now uses the existing mosque exterior photo twice: as the sharp right-side photo and a faded full-width background. Replace `docs/wp-content/uploads/2021/04/ICMC-Small-file-2-1-scaled.jpg` with an organization-approved full-resolution image if necessary; both instances will update together.
