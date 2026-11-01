@@ -37,7 +37,7 @@ if (menu && nav) {
   });
 }
 
-document.querySelectorAll('form.demo-form').forEach((form) => {
+document.querySelectorAll('form.email-form').forEach((form) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
@@ -50,9 +50,17 @@ document.querySelectorAll('form.demo-form').forEach((form) => {
       return;
     }
 
+    const recipient = form.dataset.recipient;
+    const senderName = form.querySelector('[name="name"]').value.trim();
+    const senderEmail = form.querySelector('[name="email"]').value.trim();
+    const subject = form.querySelector('[name="topic"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+    const body = `From: ${senderName}\nReply email: ${senderEmail}\n\n${message}`;
+    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     const status = form.querySelector('[role=status]');
     if (status) {
-      status.textContent = 'Validation passed. This is a prototype: your message has not been sent or stored. Please use the email or phone number shown to contact ICMC.';
+      status.textContent = 'Your email application should open with a prepared message. Review it and press Send there; the website itself does not send messages.';
       status.focus();
     }
   });
