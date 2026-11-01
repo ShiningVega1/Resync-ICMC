@@ -97,7 +97,7 @@ document.querySelectorAll('form.email-form').forEach((form) => {
       let index=0,timer;
       carousel.innerHTML='<div class="cms-slide" aria-live="polite"></div><div class="cms-controls"><button type="button" data-prev aria-label="Previous announcement">‹</button><span class="cms-count"></span><button type="button" data-next aria-label="Next announcement">›</button></div>';
       const draw=()=>{const x=slides[index],link=safeLink(x.link),slide=carousel.querySelector('.cms-slide');
-        slide.innerHTML='<p class="cms-date">'+esc(x.date)+'</p><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p>'+(link?'<a href="'+esc(link)+'" rel="noopener noreferrer">Read more ↗</a>':'<a href="announcements.html">All announcements →</a>');
+        slide.innerHTML='<p class="cms-date">'+esc(x.date)+'</p><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p>'+(link?'<a href="'+esc(link)+'" rel="noopener noreferrer">Read more ↗</a>':'');
         carousel.querySelector('.cms-count').textContent=(index+1)+' / '+slides.length;
       };
       const move=n=>{index=(index+n+slides.length)%slides.length;draw();};
