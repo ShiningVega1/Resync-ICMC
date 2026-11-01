@@ -84,7 +84,7 @@ document.querySelectorAll('form.demo-form').forEach((form) => {
       out.innerHTML=entries.length?entries.map(x=>card(x,kind)).join(''):'<p>No published updates at this time.</p>';
     });
     if(carousel){
-      const slides=(feed.announcements||[]).filter(x=>active(x)&&x.featured);
+      const slides=(feed.announcements||[]).filter(x=>active(x)&&x.featured).sort((a,b)=>{const x=Number.isFinite(Number(a.order))&&a.order!==''&&a.order!=null?Number(a.order):9999;const y=Number.isFinite(Number(b.order))&&b.order!==''&&b.order!=null?Number(b.order):9999;return x-y || b.date.localeCompare(a.date);});
       if(!slides.length){carousel.innerHTML='<p>No featured announcements at this time. <a href="announcements.html">View announcements</a>.</p>';return;}
       let index=0,timer;
       carousel.innerHTML='<div class="cms-slide" aria-live="polite"></div><div class="cms-controls"><button type="button" data-prev aria-label="Previous announcement">‹</button><span class="cms-count"></span><button type="button" data-next aria-label="Next announcement">›</button></div>';
