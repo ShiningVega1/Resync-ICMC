@@ -62,9 +62,9 @@ document.querySelectorAll('form.demo-form').forEach((form) => {
 
 // CMS-powered community content; generated during GitHub Pages deployment.
 (() => {
-  const out = document.querySelector('[data-content-list]');
+  const outputs = [...document.querySelectorAll('[data-content-list]')];
   const carousel = document.querySelector('[data-announcement-carousel]');
-  if (!out && !carousel) return;
+  if (!outputs.length && !carousel) return;
   const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const today = new Date().toISOString().slice(0,10);
   const active = item => item.published === true && (!item.expires || item.expires >= today);
@@ -78,11 +78,11 @@ document.querySelectorAll('form.demo-form').forEach((form) => {
     return '<article class="cms-entry"><p class="cms-date">'+esc(item.date)+'</p><h3>'+esc(item.title)+'</h3><p>'+esc(item.summary)+'</p>'+(item.body?'<p>'+esc(item.body)+'</p>':'')+(url?'<a href="'+esc(url)+'" rel="noopener noreferrer">More information ↗</a>':'')+'</article>';
   };
   fetch('content/feed.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Feed unavailable');return r.json();}).then(feed=>{
-    if(out){
+    outputs.forEach(out=>{
       const kind=out.dataset.contentList;
       const entries=(feed[kind]||[]).filter(active).sort((a,b)=>kind==='events'?a.date.localeCompare(b.date):b.date.localeCompare(a.date));
       out.innerHTML=entries.length?entries.map(x=>card(x,kind)).join(''):'<p>No published updates at this time.</p>';
-    }
+    });
     if(carousel){
       const slides=(feed.announcements||[]).filter(x=>active(x)&&x.featured);
       if(!slides.length){carousel.innerHTML='<p>No featured announcements at this time. <a href="announcements.html">View announcements</a>.</p>';return;}
@@ -102,5 +102,5 @@ document.querySelectorAll('form.demo-form').forEach((form) => {
       carousel.addEventListener('focusout',start);
       draw();start();
     }
-  }).catch(()=>{if(out)out.innerHTML='<p>Updates are temporarily unavailable.</p>';if(carousel)carousel.innerHTML='<p>Announcements are temporarily unavailable. <a href="announcements.html">View updates</a>.</p>';});
+  }).catch(()=>{outputs.forEach(out=>out.innerHTML='<p>Updates are temporarily unavailable.</p>');if(carousel)carousel.innerHTML='<p>Announcements are temporarily unavailable. <a href="announcements.html">View updates</a>.</p>';});
 })();
