@@ -11,9 +11,10 @@ content:
     filename: "{primary}.json"
     view:
       primary: title
-      fields: [title, date, featured, published]
+      fields: [title, order, date, featured, published]
     fields:
       - { name: title, label: Title, type: string, required: true }
+      - { name: order, label: Slideshow order (lower first), type: number }
       - { name: date, label: Date, type: date, required: true }
       - { name: summary, label: Short description, type: text, required: true }
       - { name: body, label: Full notice, type: text }
