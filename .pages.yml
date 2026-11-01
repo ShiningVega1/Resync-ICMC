@@ -1,0 +1,51 @@
+media:
+  input: media
+  output: media
+  rename: safe
+content:
+  - name: announcements
+    label: Announcements / Slides
+    type: collection
+    path: content/announcements
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, date, featured, published]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: summary, label: Short description, type: text, required: true }
+      - { name: body, label: Full notice, type: text }
+      - { name: image, label: Optional flyer, type: image }
+      - { name: link, label: Optional link URL, type: string }
+      - { name: featured, label: Show in homepage slideshow, type: boolean }
+      - { name: published, label: Published, type: boolean }
+      - { name: expires, label: Optional expiration date, type: date }
+  - name: posts
+    label: News / Posts
+    type: collection
+    path: content/posts
+    format: json
+    filename: "{primary}.json"
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: date, type: date, required: true }
+      - { name: summary, type: text, required: true }
+      - { name: body, type: text, required: true }
+      - { name: image, type: image }
+      - { name: published, type: boolean }
+  - name: events
+    label: Events
+    type: collection
+    path: content/events
+    format: json
+    filename: "{primary}.json"
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: date, label: Event date, type: date, required: true }
+      - { name: summary, type: text, required: true }
+      - { name: body, type: text }
+      - { name: image, type: image }
+      - { name: link, label: Registration or details URL, type: string }
+      - { name: published, type: boolean }
