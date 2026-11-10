@@ -1,7 +1,7 @@
 # Resync-ICMC — Next Phase Action Plan (Phase 5)
 
 **Status:** Investigation and planning; do not mark integrations completed until verified.  
-**Repository rename:** Rename `Swipeleft-ICMC` to `Resync-ICMC` in GitHub repository **Settings → General → Repository name → Rename**. GitHub Pages paths and any external links may need to be reconfigured; audit them after rename. The GitHub connector cannot perform repository renames.
+**Repository rename:** Completed on GitHub; verified as `ShiningVega1/Resync-ICMC`. GitHub Pages deployment and external links still require validation.
 
 ## Objective
 Turn the mostly static ICMC prototype into a dependable, editable site with authoritative prayer times, a CMS-backed event calendar, and clean organization-owned fork documentation. Avoid redundant data sources, fragile scraping, or unverified integrations.
@@ -37,8 +37,9 @@ Turn the mostly static ICMC prototype into a dependable, editable site with auth
 - [ ] Confirm contact forms are functional before describing them as submission channels.
 
 ## Track 4 — Rename, hosting and independent ICMC fork
-- [ ] GitHub owner manually renames `Swipeleft-ICMC` → `Resync-ICMC`.
-- [ ] Update repository badges/links, README, workflow paths, `site.js` references, `.pages.yml` settings and any hardcoded `/Swipeleft-ICMC/` base URLs.
+- [x] GitHub owner renamed `Swipeleft-ICMC` → `Resync-ICMC`; repository identity verified.
+- [x] Update README and phase documentation for the new repository name; checked current deployment workflow, `site.js`, and `.pages.yml` (no hardcoded old repository name found in those files).
+- [ ] Audit remaining archive/media/static files and any external links for hardcoded `/Swipeleft-ICMC/` paths.
 - [ ] In GitHub Pages, verify the deployment for `https://shiningvega1.github.io/Resync-ICMC/` only **after** the rename and rebuild; do not assume the URL works automatically.
 - [ ] Do not reintroduce the canceled `swipeleft.org` domain.
 - [ ] Document how ICMC forks to its own account, enables Pages and Actions, approves Pages CMS, configures the MasjiDal account/widget, verifies the official donation recipient, connects its own domain if authorized, and replaces demonstration forms/content.
