@@ -1,4 +1,6 @@
-# Swipeleft-ICMC — forkable website with Pages CMS
+# Resync-ICMC (rename pending) — forkable website with Pages CMS
+
+> **Repository rename pending:** The owner plans to rename this repository from `Swipeleft-ICMC` to `Resync-ICMC` in GitHub Settings. Until then, the existing repository URL is authoritative. After renaming, validate GitHub Pages, internal base paths, and all fork instructions before using the new URL.
 
 A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahim). **This is not yet the organization's production website.**
 
@@ -36,6 +38,10 @@ A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahi
 - GitHub Pages is static: this does **not** provide a local `/admin` login. Staff sign into the external CMS. Existing demo contact forms do not send messages.
 - The current slideshow uses summary and links. Uploaded image fields are retained in content, but images are not displayed in the slideshow yet.
 - Example posts and announcements are demonstration data, not confirmed event schedules.
+
+## Next phase — investigation, integrations, and handoff
+
+See [NEXT_PHASE.md](NEXT_PHASE.md) for the current investigation and implementation plan, including MasjiDal's documented widget and API options, webhook verification, naming transition, and ICMC fork testing.
 
 ## Phase 4 roadmap — dynamic functionality and ICMC handoff
 
