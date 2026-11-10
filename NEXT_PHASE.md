@@ -59,3 +59,26 @@ Turn the mostly static ICMC prototype into a dependable, editable site with auth
 **M5:** ICMC can fork and reproduce the deployment using documented instructions, without the original author's domain or credentials.
 
 All items remain proposals until implemented and tested.
+
+## MasjiDal investigation update — 2026-11-09
+
+### Confirmed integration modules
+The current official widget editor at https://help.masjidal.com/knowledge-base/widget/ documents:
+- **Prayer-times widget**: Grid, Table, Table 2, Ribbon, Compact, and Minimal Bar layouts; header options and Hijri date behavior.
+- **Announcements widget**: Stacked, Compact, and Ribbon layouts.
+- Both use a single page-level script `https://widgets.masjidal.com/timetable/v0/widget.js` and separate `<masjidal-widget>` instances with `widget-id`, `type`, and a **domain-allowlisted public frontend key** (`msj_pk_`). Obtain exact snippets from the authorized MasjiDal portal; don't commit credentials.
+- Legacy widget resources at https://mymasjidal.com/pages/integration and historical widget help advertise dynamic monthly prayer timetables. Determine whether the newer editor has the same monthly option, or whether a separate legacy embed is necessary.
+- The server API at https://help.masjidal.com/knowledge-base/prayer-times-api/ uses `msj_sk_` and a date-scoped timings endpoint; server-side only. Official docs recommend caching and avoiding repeated requests for identical dates.
+- MasjiDal's ecosystem includes Athan+ and Al-Iqamah signage, and Google Calendar event links. Those are **not automatically website embed modules**.
+
+### Recommended proof of concept
+1. Authorized ICMC MasjiDal admin verifies the listing, opens **Integrations → Widgets**, previews all six prayer layout options, and publishes one. Do not share frontend or server keys in chat.
+2. In a temporary development branch, insert the widget loader once and the portal-provided prayer widget snippet. Register the actual GitHub Pages hostname as an allowed frontend-key domain.
+3. Compare Grid, Table, Compact, and Minimal Bar for homepage and Prayer & Worship pages; test desktop/mobile, prayer start vs iqamah, Jumu'ah, loading, errors and display updates.
+4. Separately test the **monthly timetable** link/embed. Preserve the existing official PDF as a fallback until it works reliably.
+5. Keep **Pages CMS announcements** authoritative for the website unless ICMC explicitly adopts MasjiDal for announcements; avoid duplicate entry and conflicting schedules.
+6. Document webhook/JS event hook availability as **unknown** pending confirmation from MasjiDal support (`masjidsupport@masjidal.com`). Don't promise event callbacks without an official contract.
+7. If the widget cannot meet design/accessibility requirements, request API access via an authorized ICMC admin and compare server-side scheduled JSON generation in GitHub Actions against the native embed. Never expose `msj_sk_` to browser code.
+
+### Decision criteria
+Accuracy against the existing MasjiDal schedule, usability/accessibility, refresh behavior, domain authorization, free vs Professional features, failure-mode messaging, and ease of operation by ICMC after a fork.
