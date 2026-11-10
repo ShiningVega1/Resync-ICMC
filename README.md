@@ -37,6 +37,37 @@ A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahi
 - The current slideshow uses summary and links. Uploaded image fields are retained in content, but images are not displayed in the slideshow yet.
 - Example posts and announcements are demonstration data, not confirmed event schedules.
 
+## Phase 4 roadmap — dynamic functionality and ICMC handoff
+
+Phase 4 combines site cleanup, integrations, and owner handoff. **Roadmap items below are planned, not necessarily implemented.** See [PHASE4.md](PHASE4.md) for detailed tasks and acceptance criteria.
+
+1. **Prayer times / MasjiDal:** Determine whether MasjiDal provides supported embeddable widgets, APIs, callbacks, or webhooks. Prefer a maintained first-party embed if it supplies live prayer and iqamah times. If no supported programmatic interface exists, retain the working embed and document manual fallback settings. Do not scrape private endpoints or invent integrations.
+2. **Dynamic events calendar:** Reuse `content/events/*.json` and Pages CMS as the single source of truth. Provide a calendar view, event detail links, and clear handling for changes/cancellations. Avoid maintaining duplicate event data.
+3. **Content administration:** Keep Pages CMS for announcements, posts, events, and media; improve validation and editing instructions rather than adding a second admin system.
+4. **Site polish:** Consolidate duplicated navigation/buttons, ensure accessible mobile menus, refine headings and spacing, and set the approved ICMC logo as favicon.
+5. **Preview hosting:** Configure `icmc.swipeleft.org` via Cloudflare only after DNS/deployment checks. A client-side password gate on GitHub Pages **does not protect private content**. For genuinely restricted previews, use an access-controlled host or a properly configured Cloudflare Access deployment, not a hardcoded password.
+6. **ICMC ownership transfer:** Make the organization-owned fork independently deployable, remove creator-specific configuration, and document domain, CMS, donation, forms, and prayer widget ownership.
+7. **Optional chatbot:** Evaluate a free-tier, read-only, approved knowledge source (e.g. published Google Doc data), with transparent fallback to relevant ICMC email contacts. Do not expose private documents or promise correct answers without content review.
+
+### ICMC fork handoff: configuration audit
+
+After forking, ICMC should run through these steps **in addition to the fork-and-launch instructions above**:
+
+- [ ] Confirm the fork is owned by ICMC, and at least two authorized administrators can manage it.
+- [ ] Review the GitHub Pages workflow, `main` branch, Pages CMS `.pages.yml` repository access, and GitHub Actions permissions.
+- [ ] Replace any creator-specific GitHub Pages base paths, repository links, preview-domain links, and `swipeleft.org` references with ICMC-owned values. Verify assets and internal links after deployment.
+- [ ] Decide whether to retain the prototype subdomain temporarily or connect the ICMC-owned domain; configure DNS/custom domain only with the organization's approval.
+- [ ] Choose a verified, official MasjiDal account/widget or other prayer data source, and configure the monthly timetable link. Document who updates congregation and Friday prayer times.
+- [ ] Confirm CMS calendar entries and homepage/announcements listings agree; remove sample events and add real event owners.
+- [ ] Replace the demo contact forms with a working, spam-protected form service or clearly labeled contact email; route general queries and imam inquiries to the correct authorized recipients.
+- [ ] Validate the donation recipient before publishing any MOHID link; do not assume the prototype link is correct.
+- [ ] Replace placeholders and draft content, confirm permission for photos/logo, update favicon, and remove old `docs/` archive paths and prototype notices when ready.
+- [ ] Review accessibility, mobile layout, link integrity, privacy, and permitted access to any unpublished material.
+- [ ] Only after ICMC authorizes launch, remove `noindex,nofollow` and verify search-engine and public access settings.
+- [ ] Record administrator responsibilities for prayer schedules, events, announcements, domain, CMS, and repository backups.
+
+**Ownership boundary:** Forking copies public source files, not the creator's domain ownership, DNS records, GitHub App authorization, secrets, or external accounts. Any necessary integrations must be separately configured in the ICMC-owned environment.
+
 ## Moving to another host
 The build emits a self-contained `_site/` folder. Any static host able to publish this folder can serve the website; Pages CMS continues to edit GitHub files. Deploy `_site/` rather than the repository root, otherwise the CMS feed will not exist. The workflow is specific to GitHub Pages; replace it for a different provider.
 
