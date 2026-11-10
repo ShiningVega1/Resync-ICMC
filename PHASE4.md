@@ -29,7 +29,7 @@ Deliver a polished, maintainable site, still compatible with the GitHub Pages + 
 
 ## D. Hosting and controlled review
 - [ ] Test GitHub Pages deployment from `_site/`.
-- [ ] Plan Cloudflare DNS for `icmc.swipeleft.org`; verify custom domain/TLS.
+- [ ] Use the GitHub Pages preview URL; if ICMC approves a production domain, configure its DNS and TLS under ICMC's control.
 - [ ] For restricted previews, choose real access control. A JS-only password prompt, even one asking for `ICMC_Pass`, is not security and does not restrict GitHub Pages files. Avoid putting sensitive content on public pages.
 - [ ] Keep preview `noindex` until an authorized production launch.
 
