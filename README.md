@@ -1,6 +1,4 @@
-# Resync-ICMC (rename pending) — forkable website with Pages CMS
-
-> **Repository rename pending:** The owner plans to rename this repository from `Swipeleft-ICMC` to `Resync-ICMC` in GitHub Settings. Until then, the existing repository URL is authoritative. After renaming, validate GitHub Pages, internal base paths, and all fork instructions before using the new URL.
+# Resync-ICMC — forkable website with Pages CMS
 
 A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahim). **This is not yet the organization's production website.**
 
@@ -11,6 +9,9 @@ A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahi
 - `.pages.yml` configuring an external, GitHub-authorized visual editor for all three collections.
 - Zero-dependency Python static build and GitHub Pages deployment workflow.
 - MOHID link supplied for review: `https://us.mohid.co/il/joliet/mi/masjid/online/donation/index/23`. **Verify the payee/recipient with ICMC before promoting it as an official live donation channel** (URL contains a Joliet path).
+
+**Repository:** https://github.com/ShiningVega1/Resync-ICMC  
+**Preview candidate:** https://shiningvega1.github.io/Resync-ICMC/ (verify successful deployment in GitHub Actions before sharing).
 
 ## Fork and launch (ICMC owner)
 1. Fork this repository to ICMC's GitHub account or organization. The organization must own and control its repository.
@@ -41,7 +42,7 @@ A clean, static prototype for the Islamic Center of McLean County (Masjid Ibrahi
 
 ## Next phase — investigation, integrations, and handoff
 
-See [NEXT_PHASE.md](NEXT_PHASE.md) for the current investigation and implementation plan, including MasjiDal's documented widget and API options, webhook verification, naming transition, and ICMC fork testing.
+See [NEXT_PHASE.md](NEXT_PHASE.md) for the current investigation and implementation plan, including MasjiDal's documented widget and API options, webhook verification, post-rename deployment checks, and ICMC fork testing.
 
 ## Phase 4 roadmap — dynamic functionality and ICMC handoff
 
