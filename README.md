@@ -45,7 +45,7 @@ Phase 4 combines site cleanup, integrations, and owner handoff. **Roadmap items 
 2. **Dynamic events calendar:** Reuse `content/events/*.json` and Pages CMS as the single source of truth. Provide a calendar view, event detail links, and clear handling for changes/cancellations. Avoid maintaining duplicate event data.
 3. **Content administration:** Keep Pages CMS for announcements, posts, events, and media; improve validation and editing instructions rather than adding a second admin system.
 4. **Site polish:** Consolidate duplicated navigation/buttons, ensure accessible mobile menus, refine headings and spacing, and set the approved ICMC logo as favicon.
-5. **Preview hosting:** Configure `icmc.swipeleft.org` via Cloudflare only after DNS/deployment checks. A client-side password gate on GitHub Pages **does not protect private content**. For genuinely restricted previews, use an access-controlled host or a properly configured Cloudflare Access deployment, not a hardcoded password.
+5. **Preview hosting:** Use the fork's GitHub Pages preview URL; optionally configure ICMC's own approved domain later. No `swipeleft.org` domain or subdomain is part of the deployment plan. A client-side password gate on GitHub Pages **does not protect private content**. For genuinely restricted previews, use an access-controlled host or a properly configured Cloudflare Access deployment, not a hardcoded password.
 6. **ICMC ownership transfer:** Make the organization-owned fork independently deployable, remove creator-specific configuration, and document domain, CMS, donation, forms, and prayer widget ownership.
 7. **Optional chatbot:** Evaluate a free-tier, read-only, approved knowledge source (e.g. published Google Doc data), with transparent fallback to relevant ICMC email contacts. Do not expose private documents or promise correct answers without content review.
 
@@ -55,8 +55,8 @@ After forking, ICMC should run through these steps **in addition to the fork-and
 
 - [ ] Confirm the fork is owned by ICMC, and at least two authorized administrators can manage it.
 - [ ] Review the GitHub Pages workflow, `main` branch, Pages CMS `.pages.yml` repository access, and GitHub Actions permissions.
-- [ ] Replace any creator-specific GitHub Pages base paths, repository links, preview-domain links, and `swipeleft.org` references with ICMC-owned values. Verify assets and internal links after deployment.
-- [ ] Decide whether to retain the prototype subdomain temporarily or connect the ICMC-owned domain; configure DNS/custom domain only with the organization's approval.
+- [ ] Replace any creator-specific GitHub Pages base paths, repository links, preview-domain links, and creator-owned preview-domain references with ICMC-owned values. Verify assets and internal links after deployment.
+- [ ] Use the GitHub Pages preview URL until ICMC authorizes its own domain; configure custom-domain DNS only with the organization's approval.
 - [ ] Choose a verified, official MasjiDal account/widget or other prayer data source, and configure the monthly timetable link. Document who updates congregation and Friday prayer times.
 - [ ] Confirm CMS calendar entries and homepage/announcements listings agree; remove sample events and add real event owners.
 - [ ] Replace the demo contact forms with a working, spam-protected form service or clearly labeled contact email; route general queries and imam inquiries to the correct authorized recipients.
